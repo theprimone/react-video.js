@@ -1,8 +1,9 @@
 {
-  "name": "ant-design-pro",
+  "name": "react-video.js",
   "version": "1.0.0",
   "private": true,
-  "description": "An out-of-box UI solution for enterprise applications",
+  "homepage": "https://theprimone.top/react-video.js",
+  "description": "Use video.js with React.",
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi build",
