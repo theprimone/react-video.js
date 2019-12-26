@@ -4,6 +4,14 @@
   width: 16 * 50px;
   height: 9 * 50px;
   margin: 24px auto;
+
+  :global {
+    .vjs-progress-control,
+    .vjs-remaining-time,
+    .vjs-picture-in-picture-control {
+      visibility: hidden;
+    }
+  }
 }
 
 .form {
