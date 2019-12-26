@@ -26,6 +26,7 @@ export interface PlayerProps {
 
 export default class Player extends Component<PlayerProps> {
   videoNode?: HTMLVideoElement;
+
   player?: VideoJsPlayer;
 
   componentDidMount() {
@@ -59,7 +60,7 @@ export default class Player extends Component<PlayerProps> {
     return (
       <div style={style} className={className}>
         {/* data-vjs-player ref: https://docs.videojs.com/tutorial-react.html */}
-        <div ata-vjs-player="true">
+        <div data-vjs-player="true">
           <video
             ref={node => {
               if (node) {
