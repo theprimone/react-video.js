@@ -40,6 +40,9 @@ export interface DefaultSettings {
   // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
   iconfontUrl: string;
   colorWeak: boolean;
+
+  base: string;
+  publicPath: string;
 }
 
 export default {
@@ -58,4 +61,7 @@ export default {
   title: 'React Video.js',
   pwa: false,
   iconfontUrl: '',
+
+  base: '/react-video.js/',
+  publicPath: '/react-video.js/',
 } as DefaultSettings;

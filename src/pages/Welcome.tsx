@@ -3,8 +3,11 @@ import { VideoJsPlayer } from 'video.js';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 // import { FormattedMessage } from 'umi-plugin-react/locale';
 import { Card, Radio, Input, Form, Button } from 'antd';
+import defaultSettings from '../../config/defaultSettings';
 import Player from '@/components/Player';
 import styles from './Welcome.less';
+
+const { publicPath } = defaultSettings;
 
 const techOptions = [
   { label: 'html5', value: 'html5' },
@@ -36,7 +39,7 @@ export default (): React.ReactNode => {
           options={{
             techOrder: [techOrder],
             sources: [{ src: url }],
-            poster: '/icons/videojs.png',
+            poster: `${publicPath}icons/videojs.png`,
           }}
           className={styles.video}
           onReady={_player => {
