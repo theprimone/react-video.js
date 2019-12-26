@@ -152,8 +152,11 @@ export default {
   //   },
   // },
   base,
+  // ref1: https://github.com/umijs/umi/issues/2813
+  // ref2: https://github.com/umijs/umi/issues/3459
   publicPath,
 
+  // ref: https://github.com/umijs/umi/issues/3775
   chainWebpack: config => {
     config.output.publicPath(publicPath);
   },
