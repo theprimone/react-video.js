@@ -36,6 +36,7 @@ export default (): React.ReactNode => {
           options={{
             techOrder: [techOrder],
             sources: [{ src: url }],
+            poster: '/icons/videojs.png',
           }}
           className={styles.video}
           onReady={_player => {
