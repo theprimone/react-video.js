@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
 import 'video.js/dist/video-js.css';
 import 'videojs-flash';
+import defaultSettings from '../../../config/defaultSettings';
+
+const { publicPath } = defaultSettings;
 
 const defaultOptions = {
   aspectRatio: '16:9',
   controls: true,
 };
 
-// const flashOptions = {
-//   techOrder: ["flash", "html5"],
-//   flash: {
-//     swf: "https://unpkg.com/@brightcove/videojs-flashls-source-handler/dist/video-js.swf",
-//   },
-// }
+const flashOptions = {
+  flash: {
+    swf: `${publicPath}video-js.swf`,
+  },
+};
 
 export interface PlayerProps {
   options?: VideoJsPlayerOptions;
@@ -31,6 +33,7 @@ export default class Player extends Component<PlayerProps> {
 
     const videoJsOptions: VideoJsPlayerOptions = {
       ...defaultOptions,
+      ...flashOptions,
       ...options,
     };
 
@@ -38,6 +41,8 @@ export default class Player extends Component<PlayerProps> {
     this.player = videojs(this.videoNode, videoJsOptions, function onPlayerReady(
       this: VideoJsPlayer,
     ) {
+      console.log('flash tech', videojs.getTech('flash'));
+      console.log('html5 tech', videojs.getTech('html5'));
       onReady(this);
     });
   }
