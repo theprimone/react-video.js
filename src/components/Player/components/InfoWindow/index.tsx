@@ -1,30 +1,35 @@
-import React, { Component } from 'react';
-import { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
+import React from 'react';
+import videojs, { VideoJsPlayer } from 'video.js';
 import ReactDOM from 'react-dom';
-import videojs from 'video.js';
+import { Wrapper, WrapperProps } from '../Wrapper';
+import styles from './index.less';
 
 const vjsComponent = videojs.getComponent('Component');
 
-class InfoWindow extends Component<any> {
-  render() {
-    return (
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
+export interface InfoWindowProps extends WrapperProps {}
+
+const InfoWindow: React.FC<InfoWindowProps> = ({ content, vjsComponent, ...rest }) => {
+  const wrapper = (
+    <div className={styles.info}>
+      <span
+        className={styles.infoClose}
+        onClick={() => {
+          if (vjsComponent) {
+            vjsComponent.dispose();
+          }
         }}
       >
-        <h1 style={{ color: 'white' }}>{this.props.body}</h1>
-      </div>
-    );
-  }
-}
+        [x]
+      </span>
+      {content}
+    </div>
+  );
+  return <Wrapper vjsComponent={vjsComponent} content={wrapper} {...rest} />;
+};
 
 export default class vjsInfoWindow extends vjsComponent {
-  constructor(player: VideoJsPlayer, options: VideoJsPlayerOptions) {
+  constructor(player: VideoJsPlayer, options: videojs.ComponentOptions) {
     super(player, options);
-    console.log('vjsInfoWindow options', options);
 
     /* Bind the current class context to the mount method */
     this.mount = this.mount.bind(this);
@@ -48,6 +53,10 @@ export default class vjsInfoWindow extends vjsComponent {
    * vjsComponent class that this class is extending.
    */
   mount() {
-    ReactDOM.render(<InfoWindow vjsComponent={this} body="InfoWindow" />, this.el());
+    console.log(this.options_);
+    ReactDOM.render(
+      <InfoWindow vjsComponent={this} {...(this.options_ as WrapperProps)} />,
+      this.el(),
+    );
   }
 }
