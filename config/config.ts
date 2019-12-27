@@ -87,6 +87,12 @@ export default {
           component: './Welcome',
         },
         {
+          path: '/video-wall',
+          name: 'videoWall',
+          icon: 'smile',
+          component: './VideoWall',
+        },
+        {
           component: './404',
         },
       ],

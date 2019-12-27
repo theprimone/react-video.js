@@ -1,5 +1,8 @@
 export default {
   'menu.welcome': 'Welcome',
+
+  'menu.videoWall': 'Video Wall',
+
   'menu.more-blocks': 'More Blocks',
   'menu.home': 'Home',
   'menu.admin': 'admin',
