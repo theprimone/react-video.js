@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { VideoJsPlayer } from 'video.js';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 // import { FormattedMessage } from 'umi-plugin-react/locale';
-import { Card, Radio, Input, Form, Button } from 'antd';
+import { Card, Radio, Input, Form, Button, Descriptions } from 'antd';
 import defaultSettings from '../../config/defaultSettings';
 import { LivePlayer } from '@/components/Player';
 import styles from './Welcome.less';
@@ -18,13 +18,30 @@ export default (): React.ReactNode => {
   const [player, setPlayer] = useState<VideoJsPlayer>();
   const [videoKey, setVideoKey] = useState(1);
   const [techOrder, setTechOrder] = useState('flash');
-  const [url, setUrl] = useState('rtmp://fms.105.net/live/rmc1');
+  const [url, setUrl] = useState('rtmp://video.cloudta.net/live/f7a6ead72c67498fb768cd1d5317b7d1');
+  // const [url, setUrl] = useState('rtmp://fms.105.net/live/rmc1');
+  const [dimension, setDimension] = useState<number[]>([]);
 
   useEffect(() => {
     player?.dispose();
     setPlayer(undefined);
     setVideoKey(videoKey + 1);
   }, [techOrder]);
+
+  const videoInfo = (
+    <Descriptions column={1}>
+      <Descriptions.Item label="Url">{url}</Descriptions.Item>
+      <Descriptions.Item label="Resolution">
+        {dimension[0]} x {dimension[1]}
+      </Descriptions.Item>
+    </Descriptions>
+  );
+
+  useEffect(() => {
+    if (player && dimension.length && !player.getChild('InfoWindow')) {
+      player.addChild('InfoWindow', { content: videoInfo });
+    }
+  }, [dimension.length]);
 
   function handleApply() {
     player?.src(url);
@@ -44,7 +61,10 @@ export default (): React.ReactNode => {
           className={styles.video}
           onReady={(_player: VideoJsPlayer) => {
             setPlayer(_player);
-            _player.addChild('InfoWindow');
+
+            _player.on('play', () => {
+              setDimension([_player.videoWidth(), _player.videoHeight()]);
+            });
           }}
         />
         <div className={styles.form}>
