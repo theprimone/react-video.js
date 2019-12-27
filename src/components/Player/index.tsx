@@ -6,9 +6,10 @@ import defaultSettings from '../../../config/defaultSettings';
 
 const { publicPath } = defaultSettings;
 
-const defaultOptions = {
-  aspectRatio: '16:9',
+const defaultOptions: VideoJsPlayerOptions = {
+  // aspectRatio: '16:9',
   controls: true,
+  // fluid: true,
 };
 
 const flashOptions = {
