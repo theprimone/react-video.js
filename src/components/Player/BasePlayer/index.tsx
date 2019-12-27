@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
 import 'video.js/dist/video-js.css';
 import 'videojs-flash';
+import '../components';
 import defaultSettings from '../../../../config/defaultSettings';
 import styles from './index.less';
 
