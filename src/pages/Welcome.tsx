@@ -4,7 +4,7 @@ import { PageHeaderWrapper } from '@ant-design/pro-layout';
 // import { FormattedMessage } from 'umi-plugin-react/locale';
 import { Card, Radio, Input, Form, Button } from 'antd';
 import defaultSettings from '../../config/defaultSettings';
-import Player from '@/components/Player';
+import { LivePlayer } from '@/components/Player';
 import styles from './Welcome.less';
 
 const { publicPath } = defaultSettings;
@@ -34,7 +34,7 @@ export default (): React.ReactNode => {
   return (
     <PageHeaderWrapper title="Live Player">
       <Card>
-        <Player
+        <LivePlayer
           key={videoKey}
           options={{
             techOrder: [techOrder],
