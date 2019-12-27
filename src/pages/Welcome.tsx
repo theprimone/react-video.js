@@ -42,8 +42,9 @@ export default (): React.ReactNode => {
             poster: `${publicPath}icons/videojs.png`,
           }}
           className={styles.video}
-          onReady={_player => {
+          onReady={(_player: VideoJsPlayer) => {
             setPlayer(_player);
+            _player.addChild('InfoWindow');
           }}
         />
         <div className={styles.form}>
