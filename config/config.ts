@@ -93,6 +93,12 @@ export default {
           component: './VideoWall',
         },
         {
+          path: '/playlist',
+          name: 'playlist',
+          icon: 'smile',
+          component: './Playlist',
+        },
+        {
           component: './404',
         },
       ],

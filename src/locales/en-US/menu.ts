@@ -2,6 +2,7 @@ export default {
   'menu.welcome': 'Welcome',
 
   'menu.videoWall': 'Video Wall',
+  'menu.playlist': 'Playlist',
 
   'menu.more-blocks': 'More Blocks',
   'menu.home': 'Home',

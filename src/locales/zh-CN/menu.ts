@@ -2,6 +2,7 @@ export default {
   'menu.welcome': '欢迎',
 
   'menu.videoWall': '视频墙',
+  'menu.playlist': '播放列表',
 
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',

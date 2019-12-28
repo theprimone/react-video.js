@@ -1,0 +1,25 @@
+@import '~antd/lib/style/themes/default.less';
+
+@playlist-width: 300px;
+@video-width: 100%;
+@video-max-width: 16 * 50px;
+@video-height: 400px;
+
+.video {
+  width: @video-width;
+  max-width: @video-max-width + @playlist-width;
+  height: @video-height;
+  margin: 24px auto;
+  padding-right: @playlist-width;
+
+  :global {
+    .vjs-playlist {
+      position: absolute;
+      top: 0;
+      right: -@playlist-width;
+      z-index: 1;
+      width: @playlist-width;
+      height: @video-height;
+    }
+  }
+}
