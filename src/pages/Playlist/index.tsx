@@ -11,7 +11,7 @@ const { publicPath } = defaultSettings;
 
 const playlist = [
   {
-    name: 'CCTV-1',
+    name: 'CCTV-1 HD',
     description:
       "CCTV-1 (CCTV General Channel) is the primary channel in CCTV, the national flagship terrestrial television network of the People's Republic of China.",
     sources: [
@@ -22,7 +22,7 @@ const playlist = [
     poster: `${publicPath}/icons/videojs.png`,
   },
   {
-    name: 'CCTV-3',
+    name: 'CCTV-3 HD',
     description:
       "CCTV-3 is the art focused channel of the CCTV (China Central Television) Network in the People's Republic of China. ",
     sources: [
@@ -33,7 +33,7 @@ const playlist = [
     poster: `${publicPath}/icons/videojs.png`,
   },
   {
-    name: 'CCTV-5+',
+    name: 'CCTV-5+ HD',
     description:
       "CCTV-5+ (Sports Plus) formerly CCTV-HD is China Central Television's channel designed to broadcast sports events in HD.",
     sources: [
@@ -44,7 +44,7 @@ const playlist = [
     poster: `${publicPath}/icons/videojs.png`,
   },
   {
-    name: 'CCTV-6',
+    name: 'CCTV-6 HD',
     description:
       'China Movie Channel is a trade name of what is literally translated as the "Film Satellite Channel Programme Production Centre"',
     sources: [
