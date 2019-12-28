@@ -3,6 +3,9 @@ import classNames from 'classnames';
 import videojs, { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js';
 import 'video.js/dist/video-js.css';
 import 'videojs-flash';
+import 'videojs-playlist';
+import 'videojs-playlist-ui';
+import 'videojs-playlist-ui/dist/videojs-playlist-ui.css';
 import '../components';
 import defaultSettings from '../../../../config/defaultSettings';
 import styles from './index.less';
@@ -51,6 +54,9 @@ export default class BasePlayer extends Component<BasePlayerProps> {
       // console.log('flash tech', videojs.getTech('flash'));
       // console.log('html5 tech', videojs.getTech('html5'));
       onReady(this);
+      this.on('error', () => {
+        console.error('VIDEOJS: ERROR: videoJsOptions:', videoJsOptions);
+      });
     });
   }
 
@@ -75,6 +81,7 @@ export default class BasePlayer extends Component<BasePlayerProps> {
             }}
             className={classNames('video-js', videoClassName)}
           />
+          <div className="vjs-playlist" />
         </div>
       </div>
     );
