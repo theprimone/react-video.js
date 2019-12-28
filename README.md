@@ -4,4 +4,4 @@ Use video.js with React. **[Preview](https://theprimone.github.io/react-video.js
 
 ## Precautions
 
-Please enable the `flash` function by default and try again, if button `Apply` is disabled for a long time.
+Please enable the `flash` function by default and try again, if button `Apply` is disabled for a long time. But if you don't need to playback with `flash`, skip it.
