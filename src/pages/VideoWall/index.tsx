@@ -23,9 +23,6 @@ const sources = [
   {
     src: 'rtmp://fms.105.net/live/rmc1',
   },
-  {
-    src: 'rtmp://video.cloudta.net/live/f7a6ead72c67498fb768cd1d5317b7d1',
-  },
 ];
 
 function setColSpan() {
@@ -39,7 +36,7 @@ function setColSpan() {
 
 export default (): React.ReactNode => {
   return (
-    <PageHeaderWrapper title="Live Player">
+    <PageHeaderWrapper>
       <Card>
         <Row gutter={[16, 16]}>
           {sources.map(item => {
