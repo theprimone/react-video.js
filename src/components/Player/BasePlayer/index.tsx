@@ -55,7 +55,7 @@ export default class BasePlayer extends Component<BasePlayerProps> {
       // console.log('html5 tech', videojs.getTech('html5'));
       onReady(this);
       this.on('error', () => {
-        console.error('VIDEOJS: ERROR: videoJsOptions:', videoJsOptions);
+        console.error('VIDEOJS: ERROR: videoJsOptions:', this.currentSource());
       });
     });
   }
