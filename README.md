@@ -1,6 +1,6 @@
 # react-video.js
 
-Use video.js with React. **[Preview](https://theprimone.github.io/react-video.js)**
+Use video.js with React. **[Preview](https://zpr1g.github.io/react-video.js)**
 
 ## Precautions
 
